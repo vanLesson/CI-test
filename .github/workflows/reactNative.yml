@@ -52,7 +52,7 @@ jobs:
   # Install React Native CLI
      - name: Install React Native CLI
        run: |
-        pod install react-native-cli && npm install
+        npm install react-native-cli && npm install
   # List iOS Devices & Platforms
      - name: List iOS Devices & Platforms
        run: |
