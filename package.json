@@ -5,6 +5,8 @@
     "ios": "react-native run-ios",
     "web": "expo start --web",
     "start": "react-native start",
+    "install": "( [ ! -f ./ThisIsNpmPackage ] && [ ! -f ./AlreadyInstalled ] && echo \"\" > ./AlreadyInstalled && npm install . && node ./build.js ) || echo \"SKIP: NON GIT SOURCE\""
+
   },
   "dependencies": {
     "expo": "~39.0.2",
