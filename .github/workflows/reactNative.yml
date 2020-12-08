@@ -53,20 +53,20 @@ jobs:
         rm -rf package-lock.json
   # Install React Native CLI
      - name: Install React Native CLI
-        run: |
+       run: |
         npm install react-native-cli
   # List iOS Devices & Platforms
      - name: List iOS Devices & Platforms
-        run: |
+       run: |
         xcrun simctl list
   # Install iOS 11.4 Runtime
      - name: Install iOS 11.4 Runtime
-        run: |
+       run: |
         gem install xcode-install
         xcversion simulators --install='iOS 11.4'
   # Create and Boot iOS Emulator - iPhoneX on iOS 11.4, Update default appium config for iOS
      - name: Create and Run iOS Emulator - iPhoneX on iOS 11.4, Update default appium config for iOS
-        run: |
+       run: |
         xcrun simctl create TestiPhoneX com.apple.CoreSimulator.SimDeviceType.iPhone-X com.apple.CoreSimulator.SimRuntime.iOS-11-4 > deviceid.txt
         DEVICEUUID=`cat deviceid.txt`
         echo $DEVICEUUID
@@ -74,32 +74,32 @@ jobs:
         xcrun simctl boot $DEVICEUUID &
   # Use HTTPS repos
      - name: Use HTTPS repos
-        run: |
+       run: |
         git config --global url."https://github".insteadOf ssh://git@github
   # Install Repo and Dependencies
      - name: Install Repo and Dependencies
-        run: |
+       run: |
         npm install --save-dev
   # Start the Appium Server
      - name: Start the Appium Server
-        run: ./node_modules/.bin/appium --log-timestamp --log-no-colors --allow-insecure chromedriver_autodownload > appium.log &
+       run: ./node_modules/.bin/appium --log-timestamp --log-no-colors --allow-insecure chromedriver_autodownload > appium.log &
   # Poll for Appium Server to Start
      - name: Poll for Appium Server to Start
-        run: |
+       run: |
         until $(curl --output /dev/null --silent --head --fail http://127.0.0.1:4723/wd/hub/sessions); do
           sleep 5
         done
   # Open Metro Bundler in Background
      - name: Open Metro Bundler in Background
-        run: |
+       run: |
         node_modules/react-native/scripts/launchPackager.command &
   # Build iOS App and Run Tests
      - name: Build iOS App and Run Tests
-        env:
-        E2E_TEST_PLATFORM: 'ios'
-        E2E_TEST_DEFAULTS: 'true'
-        E2E_TEST_TAGS: 'E2E'
-        run: |
+       env:
+       E2E_TEST_PLATFORM: 'ios'
+       E2E_TEST_DEFAULTS: 'true'
+       E2E_TEST_TAGS: 'E2E'
+       run: |
         react-native run-ios
         BUILT_APP=`find ~/Library/Developer/Xcode/DerivedData -name <APP_NAME>.app | grep Build/Products/Debug-iphonesimulator/<APP_NAME>.app`
         mkdir -p ios/build/<APP_NAME>/Build/Products/Debug-iphonesimulator
@@ -108,8 +108,8 @@ jobs:
         npm run e2e-test
   # Upload Appium Logs
      - name: Upload Appium logs
-        uses: actions/upload-artifact@v1
-        with:
+       uses: actions/upload-artifact@v1
+       with:
         name: appium.log
         path: appium.log
   # Upload Test Results
