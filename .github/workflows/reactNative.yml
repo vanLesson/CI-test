@@ -52,7 +52,7 @@ jobs:
   # Install React Native CLI
      - name: Install React Native CLI
        run: |
-        npm install react-native-cli && npm install
+        pod install react-native-cli && npm install
   # List iOS Devices & Platforms
      - name: List iOS Devices & Platforms
        run: |
@@ -77,7 +77,7 @@ jobs:
   # Install Repo and Dependencies
      - name: Install Repo and Dependencies
        run: |
-        npm install --save-dev
+        pod install --save-dev
   # Start the Appium Server
 
   # Open Metro Bundler in Background
