@@ -47,7 +47,7 @@ jobs:
          node-version: '10.17.0'
   # Clean Packages & Install Dependencies
      - name: Clean Packages
-        run: |
+       run: |
         rm -rf node_modules
         npm cache clean --force
         rm -rf package-lock.json
