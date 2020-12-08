@@ -5,9 +5,9 @@ name: ReactNative CI/CD
 
 on:
   push:
-    branches: [ main,develop ]
+    branches: [ main,deploy ]
   pull_request:
-    branches: [ main,develop ]
+    branches: [ main,deploy ]
 
 jobs:
   build:
