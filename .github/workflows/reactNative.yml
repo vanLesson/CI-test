@@ -91,6 +91,6 @@ jobs:
         E2E_TEST_DEFAULTS: 'true'
         E2E_TEST_TAGS: 'E2E'
        run: |
-        npm install && npx react-native start && npx react-native run-ios
+        npm install && npx react-native run-ios
 
 
