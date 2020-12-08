@@ -96,9 +96,9 @@ jobs:
   # Build iOS App and Run Tests
      - name: Build iOS App and Run Tests
        env:
-       E2E_TEST_PLATFORM: 'ios'
-       E2E_TEST_DEFAULTS: 'true'
-       E2E_TEST_TAGS: 'E2E'
+        E2E_TEST_PLATFORM: 'ios'
+        E2E_TEST_DEFAULTS: 'true'
+        E2E_TEST_TAGS: 'E2E'
        run: |
         react-native run-ios
         BUILT_APP=`find ~/Library/Developer/Xcode/DerivedData -name <APP_NAME>.app | grep Build/Products/Debug-iphonesimulator/<APP_NAME>.app`
