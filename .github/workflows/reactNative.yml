@@ -83,7 +83,7 @@ jobs:
   # Fix cocapods bugs
      - name: Fix cocapods bugs
        run: |
-        cd ios && pod init && pod install
+        cd ios && pod install
 
   # Open Metro Bundler in Background
      - name: Open Metro Bundler in Background
