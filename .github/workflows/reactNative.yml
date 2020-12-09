@@ -44,7 +44,7 @@ jobs:
        with:
          node-version: '12.0.0'
      - name: Set up Cocapods
-       run : gem install cocapods
+       run : gem install cocoapods
   # Clean Packages & Install Dependencies
      - name: Clean Packages
        run: |
