@@ -43,6 +43,8 @@ jobs:
        uses: actions/setup-node@v1
        with:
          node-version: '12.0.0'
+     - name: Set up Cocapods
+       run : gem install cocapods
   # Clean Packages & Install Dependencies
      - name: Clean Packages
        run: |
@@ -77,8 +79,11 @@ jobs:
   # Install Repo and Dependencies
      - name: Install Repo and Dependencies
        run: |
-        npm install --save-dev && cd ios && npm install
-  # Start the Appium Server
+        npm install --save-dev
+  # Fix cocapods bugs
+     - name: Fix cocapods bugs
+       run: |
+        cd ios && pod init && pod install
 
   # Open Metro Bundler in Background
      - name: Open Metro Bundler in Background
